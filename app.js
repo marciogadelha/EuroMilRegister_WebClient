@@ -1,17 +1,17 @@
 
-async function registerKey(){
+async function registerKey() {
     const checkID = document.getElementById("checkID").value
     const key = document.getElementById("key").value
-    try{
+    try {
         const response = await fetch("/register", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ checkID: checkID, key: key})
+            body: JSON.stringify({ checkID: checkID, key: key })
         });
-        response.text().then(function(text) {
+        response.text().then(function (text) {
             $("#resultStatus").text(text)
             $("#resultStatus").show()
         });
@@ -29,7 +29,7 @@ async function registerKey(){
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     document.getElementById('resultModal').addEventListener('hidden.bs.modal', function (event) {
         $("#resultStatus").hide()
     })
